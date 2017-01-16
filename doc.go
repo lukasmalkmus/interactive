@@ -8,10 +8,13 @@ gracefully on Ctrl^C and Ctrl^D.
 
 This small application echos the entered text:
     s := interactive.New(">")
-    s.Action = func(c *interactive.Context) {
+    s.Action = func(c *interactive.Context) error {
         text := c.ReadLine()
         c.WriteLine(text)
+        return nil
     }
     s.Run()
+Returning an error instead of nil will print the error and close the session
+with a return code of 1.
 */
 package interactive

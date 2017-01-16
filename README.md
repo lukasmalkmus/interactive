@@ -42,12 +42,16 @@ A more complete example can be found [here](examples/usage.go).
 This small application echos the entered text:
 ```go
 s := interactive.New(">")
-s.Action = func(c *interactive.Context) {
+s.Action = func(c *interactive.Context) error {
     text := c.ReadLine()
     c.WriteLine(text)
+    return nil
 }
 s.Run()
 ```
+Returning an error instead of nil will print the error and close the session
+with a return code 1. Calling `context.Close()` will close the session with a
+return code 0.
 
 ### Contributing
 Feel free to submit PRs or to fill Issues. Every kind of help is appreciated.

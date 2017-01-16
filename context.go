@@ -10,7 +10,7 @@ type Context struct {
 
 // Close will stop the session and restore the terminal.
 func (c *Context) Close() {
-	c.session.close()
+	c.session.close(0)
 }
 
 // ReadLine reads a line of text from the terminal.

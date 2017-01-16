@@ -1,12 +1,12 @@
 package interactive
 
 // BeforeFunc is the function to execute BEFORE the Action function is looped.
-type BeforeFunc func(*Context)
+type BeforeFunc func(*Context) error
 
 // ActionFunc is the function that should contain the logic. In most cases this
 // is reading input, parsing input, doing stuff and printing output.
-type ActionFunc func(*Context)
+type ActionFunc func(*Context) error
 
 // AfterFunc is the function to execute BEFORE the session is closed. It is
 // invoked by context.Close().
-type AfterFunc func(*Context)
+type AfterFunc func(*Context) error

@@ -57,7 +57,7 @@ func New(prompt string) *Session {
 	// Set up Ctrl^C listener.
 	term.AutoCompleteCallback = func(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
 		if key == '\x03' {
-			s.close()
+			s.close(0)
 		}
 		return "", 0, false
 	}
@@ -72,13 +72,16 @@ func (s *Session) Run() {
 		s.Before(s.context)
 	}
 
-	// Loop root action.
+	// Loop root action. Close if an error is present.
 	for {
-		s.Action(s.context)
+		if err := s.Action(s.context); err != nil {
+			s.writeLine(err.Error())
+			s.close(1)
+		}
 	}
 }
 
-func (s *Session) close() {
+func (s *Session) close(exitCode int) {
 	// Run After function if present.
 	if s.After != nil {
 		s.After(s.context)
@@ -86,7 +89,7 @@ func (s *Session) close() {
 
 	// Restore terminal.
 	terminal.Restore(s.fd, s.state)
-	os.Exit(0)
+	os.Exit(exitCode)
 }
 
 func (s *Session) readLine() string {
@@ -94,7 +97,7 @@ func (s *Session) readLine() string {
 	if err != nil {
 		// Close session on Ctrl^D.
 		if err == io.EOF {
-			s.close()
+			s.close(0)
 		}
 		panic(err)
 	}
@@ -105,7 +108,8 @@ func (s *Session) writeLine(text string) {
 	s.term.Write([]byte(text + "\n"))
 }
 
-func dummyAction(c *Context) {
+func dummyAction(c *Context) error {
 	c.WriteLine("No Action defined!")
 	c.Close()
+	return nil
 }
