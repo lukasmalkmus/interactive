@@ -15,7 +15,7 @@ This small application echos the entered text:
     }
     s.Run()
 Returning an error instead of nil will print the error and close the session
-with a return code 1. Calling `context.Close()` will close the session with a
+with a return code 1. Calling context.Close() will close the session with a
 return code 0.
 */
 package interactive
