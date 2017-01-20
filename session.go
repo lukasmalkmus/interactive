@@ -67,12 +67,15 @@ func New(prompt string) *Session {
 
 // Run is a blocking method that executes the actual logic.
 func (s *Session) Run() {
-	// Run Before function if present.
+	// Run Before function if present. Close session if an error occurs.
 	if s.Before != nil {
-		s.Before(s.context)
+		if err := s.Before(s.context); err != nil {
+			s.writeLine(err.Error())
+			s.close(1)
+		}
 	}
 
-	// Loop root action. Close if an error is present.
+	// Loop root action. Close session if an error occurs.
 	for {
 		if err := s.Action(s.context); err != nil {
 			s.writeLine(err.Error())
@@ -84,7 +87,9 @@ func (s *Session) Run() {
 func (s *Session) close(exitCode int) {
 	// Run After function if present.
 	if s.After != nil {
-		s.After(s.context)
+		if err := s.After(s.context); err != nil {
+			s.writeLine(err.Error())
+		}
 	}
 
 	// Restore terminal.
