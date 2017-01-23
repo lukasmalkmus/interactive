@@ -22,6 +22,7 @@ type Session struct {
 
 	context *Context
 	fd      int
+	shell   *Shell
 	state   *terminal.State
 	term    *terminal.Terminal
 }
@@ -49,6 +50,7 @@ func New(prompt string) *Session {
 	s := &Session{
 		Action: dummyAction,
 		fd:     fd,
+		shell:  shell,
 		state:  oldState,
 		term:   term,
 	}
@@ -82,6 +84,11 @@ func (s *Session) Run() {
 			s.close(1)
 		}
 	}
+}
+
+// Shell returns the sessions underlying shell (ReadWriter).
+func (s *Session) Shell() *Shell {
+	return s.shell
 }
 
 func (s *Session) close(exitCode int) {
