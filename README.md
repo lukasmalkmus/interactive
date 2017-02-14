@@ -1,7 +1,8 @@
 # LukasMa/interactive
 > Simple and easy interactive commandline applications. - by **[Lukas Malkmus](https://github.com/LukasMa)**
 
-[![Build Status][build_badge]][build]
+[![TravisCI Status][travis_badge]][travis]
+[![CircleCI Status][circle_badge]][circle]
 [![Coverage Status][coverage_badge]][coverage]
 [![Go Report][report_badge]][report]
 [![GoDoc][docs_badge]][docs]
@@ -64,15 +65,17 @@ Distributed under MIT License (`The MIT License`).
 See [LICENSE](LICENSE) for more information.
 
 
+[travis]: https://travis-ci.org/LukasMa/interactive
+[travis_badge]: https://travis-ci.org/LukasMa/interactive.svg
+[circle]: https://circleci.com/gh/LukasMa/interactive
+[circle_badge]: https://circleci.com/gh/LukasMa/interactive.svg?style=svg
+[coverage]: https://coveralls.io/github/LukasMa/interactive?branch=master
+[coverage_badge]: https://coveralls.io/repos/github/LukasMa/interactive/badge.svg?branch=master
+[report]: https://goreportcard.com/report/github.com/LukasMa/interactive
+[report_badge]: https://goreportcard.com/badge/github.com/LukasMa/interactive
 [docs]: https://godoc.org/github.com/LukasMa/interactive
 [docs_badge]: https://godoc.org/github.com/LukasMa/interactive?status.svg
 [release]: https://github.com/LukasMa/interactive/releases
 [release_badge]: https://img.shields.io/github/release/LukasMa/interactive.svg
-[report]: https://goreportcard.com/report/github.com/LukasMa/interactive
-[report_badge]: https://goreportcard.com/badge/github.com/LukasMa/interactive
-[build]: https://travis-ci.org/LukasMa/interactive
-[build_badge]: https://travis-ci.org/LukasMa/interactive.svg
-[coverage]: https://coveralls.io/github/LukasMa/interactive?branch=master
-[coverage_badge]: https://coveralls.io/repos/github/LukasMa/interactive/badge.svg?branch=master
 [license]: https://opensource.org/licenses/MIT
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
