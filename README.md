@@ -58,7 +58,7 @@ return code 0.
 Feel free to submit PRs or to fill Issues. Every kind of help is appreciated.
 
 ### License
-(c) Lukas Malkmus, 2017
+© Lukas Malkmus, 2017
 
 Distributed under MIT License (`The MIT License`).
 
