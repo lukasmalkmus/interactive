@@ -1,8 +1,7 @@
 # LukasMa/interactive
 > Simple and easy interactive commandline applications. - by **[Lukas Malkmus](https://github.com/LukasMa)**
 
-[![TravisCI Status][travis_badge]][travis]
-[![CircleCI Status][circle_badge]][circle]
+[![Travis Status][travis_badge]][travis]
 [![Coverage Status][coverage_badge]][coverage]
 [![Go Report][report_badge]][report]
 [![GoDoc][docs_badge]][docs]
@@ -67,8 +66,6 @@ See [LICENSE](LICENSE) for more information.
 
 [travis]: https://travis-ci.org/LukasMa/interactive
 [travis_badge]: https://travis-ci.org/LukasMa/interactive.svg
-[circle]: https://circleci.com/gh/LukasMa/interactive
-[circle_badge]: https://circleci.com/gh/LukasMa/interactive.svg?style=svg
 [coverage]: https://coveralls.io/github/LukasMa/interactive?branch=master
 [coverage_badge]: https://coveralls.io/repos/github/LukasMa/interactive/badge.svg?branch=master
 [report]: https://goreportcard.com/report/github.com/LukasMa/interactive
