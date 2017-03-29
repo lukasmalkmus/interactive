@@ -1,8 +1,12 @@
 hash: a15fa25a3fee3c8500983f9c0f2bd6d0b8948f4ae1068dd350776f643256db99
-updated: 2017-01-03T05:12:27.964132888+01:00
+updated: 2017-03-29T20:50:54.639471267+02:00
 imports:
 - name: golang.org/x/crypto
-  version: 9e7f5dc375abeb9619ea3c5c58502c428f457aa2
+  version: 459e26527287adbc2adcc5d0d49abff9a5f315a7
   subpackages:
   - ssh/terminal
+- name: golang.org/x/sys
+  version: afadfcc7779c1f4db0f6f6438afcb108d9c9c7cd
+  subpackages:
+  - unix
 testImports: []
