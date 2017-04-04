@@ -1,4 +1,4 @@
-package: github.com/LukasMa/interactive
+package: github.com/lukasmalkmus/interactive
 import:
 - package: golang.org/x/crypto
   subpackages:

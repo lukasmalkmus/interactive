@@ -1,5 +1,5 @@
-# LukasMa/interactive
-> Simple and easy interactive commandline applications. - by **[Lukas Malkmus](https://github.com/LukasMa)**
+# lukasmalkmus/interactive
+> Simple and easy interactive commandline applications. - by **[Lukas Malkmus](https://github.com/lukasmalkmus)**
 
 [![Travis Status][travis_badge]][travis]
 [![Coverage Status][coverage_badge]][coverage]
@@ -33,7 +33,7 @@ use a tagged release.
 
 Install using `go get`:
 ```bash
-go get -u github.com/LukasMa/interactive
+go get -u github.com/lukasmalkmus/interactive
 ```
 
 #### Minimum setup
@@ -64,15 +64,15 @@ Distributed under MIT License (`The MIT License`).
 See [LICENSE](LICENSE) for more information.
 
 
-[travis]: https://travis-ci.org/LukasMa/interactive
-[travis_badge]: https://travis-ci.org/LukasMa/interactive.svg
-[coverage]: https://coveralls.io/github/LukasMa/interactive?branch=master
-[coverage_badge]: https://coveralls.io/repos/github/LukasMa/interactive/badge.svg?branch=master
-[report]: https://goreportcard.com/report/github.com/LukasMa/interactive
-[report_badge]: https://goreportcard.com/badge/github.com/LukasMa/interactive
-[docs]: https://godoc.org/github.com/LukasMa/interactive
-[docs_badge]: https://godoc.org/github.com/LukasMa/interactive?status.svg
-[release]: https://github.com/LukasMa/interactive/releases
-[release_badge]: https://img.shields.io/github/release/LukasMa/interactive.svg
+[travis]: https://travis-ci.org/lukasmalkmus/interactive
+[travis_badge]: https://travis-ci.org/lukasmalkmus/interactive.svg
+[coverage]: https://coveralls.io/github/lukasmalkmus/interactive?branch=master
+[coverage_badge]: https://coveralls.io/repos/github/lukasmalkmus/interactive/badge.svg?branch=master
+[report]: https://goreportcard.com/report/github.com/lukasmalkmus/interactive
+[report_badge]: https://goreportcard.com/badge/github.com/lukasmalkmus/interactive
+[docs]: https://godoc.org/github.com/lukasmalkmus/interactive
+[docs_badge]: https://godoc.org/github.com/lukasmalkmus/interactive?status.svg
+[release]: https://github.com/lukasmalkmus/interactive/releases
+[release_badge]: https://img.shields.io/github/release/lukasmalkmus/interactive.svg
 [license]: https://opensource.org/licenses/MIT
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.svg

@@ -1,6 +1,6 @@
 package main
 
-import "github.com/LukasMa/interactive"
+import "github.com/lukasmalkmus/interactive"
 
 func main() {
 	// Create a new session. Use prompt char of your choice.
