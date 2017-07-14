@@ -11,18 +11,20 @@ import (
 // A Session is an interactive shell. The New() function should be used to
 // obtain a new Session instance.
 type Session struct {
-	// Action is the actual application logic that is looped until the
+	// Action is the actual application logic which is looped until the
 	// application gets terminated.
-	Action ActionFunc
+	Action Action
+
 	// After is run AFTER the action function, BEFORE the session is closed.
-	// It is invoked by context.Close().
-	After AfterFunc
+	After Action
+
 	// Before is run BEFORE the action function.
-	Before BeforeFunc
+	Before Action
 
 	context *Context
 	fd      int
-	shell   *Shell
+	prompt  string
+	shell   *shell
 	state   *terminal.State
 	term    *terminal.Terminal
 }
@@ -38,63 +40,50 @@ func New(prompt string) *Session {
 	}
 
 	// Satisfies the ReadWriter interface and serves as I/O for the new terminal.
-	shell := &Shell{
-		r: os.Stdin,
-		w: os.Stdout,
+	shell := &shell{
+		Reader: os.Stdin,
+		Writer: os.Stdout,
 	}
 
 	// Create new terminal with desired prompt sign.
-	term := terminal.NewTerminal(shell, strings.Trim(prompt, " ")+" ")
+	term := terminal.NewTerminal(shell, strings.TrimSpace(prompt)+" ")
 
 	// Finally create the session.
 	s := &Session{
-		Action: dummyAction,
 		fd:     fd,
+		prompt: prompt,
 		shell:  shell,
 		state:  oldState,
 		term:   term,
 	}
-	s.context = &Context{session: s}
+	s.context = &Context{Session: s}
 
-	// Set up Ctrl^C listener.
-	term.AutoCompleteCallback = func(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
-		if key == '\x03' {
-			s.close(0)
-		}
-		return "", 0, false
-	}
+	// Setup Ctrl^C listener.
+	s.term.AutoCompleteCallback = callback(s)
 
 	return s
 }
 
 // Run is a blocking method that executes the actual logic.
 func (s *Session) Run() {
+	// Abort if no ro0t action is defined.
 	if s.Action == nil {
-		panic(`Dear developer. If you see this, you fucked up big time. You
-ignored every bit of documentation and manually set the root
-Action to NIL. How is this supposed to work?!`)
+		return
 	}
 
-	// Run Before function if present. Close session if an error occurs.
+	// Run Before function if present. Print error if present.
 	if s.Before != nil {
 		if err := s.Before(s.context); err != nil {
 			s.write(err.Error() + "\n")
-			s.close(1)
 		}
 	}
 
-	// Loop root action. Close session if an error occurs.
+	// Loop root action. Print error if present.
 	for {
 		if err := s.Action(s.context); err != nil {
 			s.write(err.Error() + "\n")
-			s.close(1)
 		}
 	}
-}
-
-// Shell returns the sessions underlying shell (ReadWriter).
-func (s *Session) Shell() *Shell {
-	return s.shell
 }
 
 func (s *Session) close(exitCode int) {
@@ -127,8 +116,11 @@ func (s *Session) write(text string) {
 	s.term.Write([]byte(text))
 }
 
-func dummyAction(c *Context) error {
-	c.Println("No Action defined!")
-	c.Close()
-	return nil
+func callback(s *Session) func(string, int, rune) (string, int, bool) {
+	return func(line string, pos int, key rune) (newLine string, newPos int, ok bool) {
+		if key == '\x03' {
+			s.close(0)
+		}
+		return "", 0, false
+	}
 }

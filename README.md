@@ -43,15 +43,14 @@ This small application echos the entered text:
 ```go
 s := interactive.New(">")
 s.Action = func(c *interactive.Context) error {
-    text := c.ReadLine()
-    c.WriteLine(text)
+    text, _ := c.Scan()
+    c.Println(text)
     return nil
 }
 s.Run()
 ```
-Returning an error instead of nil will print the error and close the session
-with a return code 1. Calling `context.Close()` will close the session with a
-return code 0.
+Returning an error instead of nil will print the error. Calling `context.Close()`
+will close the session with the specified exit code.
 
 ### Contributing
 Feel free to submit PRs or to fill Issues. Every kind of help is appreciated.
