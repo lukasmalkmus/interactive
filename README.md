@@ -64,14 +64,14 @@ See [LICENSE](LICENSE) for more information.
 
 
 [travis]: https://travis-ci.org/lukasmalkmus/interactive
-[travis_badge]: https://travis-ci.org/lukasmalkmus/interactive.svg
+[travis_badge]: https://travis-ci.org/lukasmalkmus/interactive.svg?style=flat-square
 [coverage]: https://coveralls.io/github/lukasmalkmus/interactive?branch=master
-[coverage_badge]: https://coveralls.io/repos/github/lukasmalkmus/interactive/badge.svg?branch=master
+[coverage_badge]: https://coveralls.io/repos/github/lukasmalkmus/interactive/badge.svg?branch=master?style=flat-square
 [report]: https://goreportcard.com/report/github.com/lukasmalkmus/interactive
-[report_badge]: https://goreportcard.com/badge/github.com/lukasmalkmus/interactive
+[report_badge]: https://goreportcard.com/badge/github.com/lukasmalkmus/interactive?style=flat-square
 [docs]: https://godoc.org/github.com/lukasmalkmus/interactive
-[docs_badge]: https://godoc.org/github.com/lukasmalkmus/interactive?status.svg
+[docs_badge]: https://godoc.org/github.com/lukasmalkmus/interactive?status.svg?style=flat-square
 [release]: https://github.com/lukasmalkmus/interactive/releases
-[release_badge]: https://img.shields.io/github/release/lukasmalkmus/interactive.svg
+[release_badge]: https://img.shields.io/github/release/lukasmalkmus/interactive.svg?style=flat-square
 [license]: https://opensource.org/licenses/MIT
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
